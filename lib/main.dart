@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:udevs_mac_bro/routes/app_pages.dart';
 import 'package:udevs_mac_bro/routes/app_routes.dart';
 
@@ -7,7 +8,9 @@ import 'package:sizer/sizer.dart';
 
 import 'initial_binding.dart';
 
-void main() {
+void main() async{
+  await Hive.initFlutter();
+  await Hive.openBox('product');
   runApp(const MyApp());
 }  
 
