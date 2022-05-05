@@ -1,4 +1,3 @@
-import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shimmer/shimmer.dart';
@@ -86,12 +85,12 @@ import 'package:get/get.dart';
 //     );
 //   }
 // }
-
+var a = false.obs;
 // var randomId = getRandomString(200);
 HomeController controller = Get.put(HomeController());
 final Box productBox = Hive.box('product');
-List b = [];
-bool _isFavorite=false;
+List b=[];
+
 Widget allNewProductItem(NewExamProductList allModel,) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,7 +110,7 @@ Widget allNewProductItem(NewExamProductList allModel,) {
 
             Container(
               margin: EdgeInsets.only(
-                  top: 3.h
+                top: 3.h
               ),
               height: 15.h,
               width: 50.w,
@@ -119,46 +118,35 @@ Widget allNewProductItem(NewExamProductList allModel,) {
                 borderRadius: BorderRadius.circular(4.w),
                 child: Container(
                   margin: EdgeInsets.only(
-
+                    left: 5.w
                   ),
-                  child: FancyShimmerImage(
-                      imageUrl: allModel.image.toString(),
-                      boxFit: BoxFit.fitHeight,
-                      errorWidget: Container(
-
-                        child: Image(
-                          image: AssetImage("images/Vectomacr.png"),
-                        ),
-                      )
+                  child: Image(
+                    image: NetworkImage(allModel.image.toString()),
                   ),
                 ),
               ),
             ),
             Container(
-
               margin: EdgeInsets.only(
-                  left: 26.w
+                left: 26.w
               ),
-              child: FavoriteButton(
-                isFavorite: _isFavorite,
-                iconColor: _isFavorite? Colors.grey : Colors.blue,
-                valueChanged: (_isFavorite) {
-                  print('Is Favorite $_isFavorite)');
-                  if (_isFavorite == true) {
+                child: IconButton(
+                  icon:  Icon(Icons.favorite,color: Colors.red,size: 3.h,),
+                  onPressed: () {
+                    // selectedTasks.add(allModel.id.toString());
 
-                    controller.addTask(
-                        allModel.id.toString(), allModel.image.toString(),
-                        allModel.name.toString());
+                    // if(a.value==false){
+                    //   a.value=true;
+                    //   controller.addTask(allModel.id.toString(),allModel.previewImage.toString(),
+                    //       allModel.name.toString());
+                    // }else{
+                    //   a.value=false;
+                    // }
 
-                  } else {
-                    controller.deleteTask(controller.d.value);
 
-                  }
-                },
-              ),
+                  },
+                )
             ),
-
-
 
           ],
         ),
@@ -173,8 +161,7 @@ Widget allNewProductItem(NewExamProductList allModel,) {
         margin: EdgeInsets.only(
             left: 10
         ),
-        child: Text(allModel.cheapestPrice.toString(),
-          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
+        child: Text(allModel.cheapestPrice.toString(),style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold),),
       ),
     ],
   );
