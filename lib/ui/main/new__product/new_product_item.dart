@@ -118,10 +118,17 @@ Widget allNewProductItem(NewExamProductList allModel,) {
                 borderRadius: BorderRadius.circular(4.w),
                 child: Container(
                   margin: EdgeInsets.only(
-                    left: 5.w
+
                   ),
-                  child: Image(
-                    image: NetworkImage(allModel.image.toString()),
+                  child:FancyShimmerImage(
+                      imageUrl: allModel.image.toString(),
+                      boxFit: BoxFit.fitHeight,
+                      errorWidget:Container(
+
+                        child: Image(
+                          image: AssetImage("images/Vectomacr.png"),
+                        ),
+                      )
                   ),
                 ),
               ),

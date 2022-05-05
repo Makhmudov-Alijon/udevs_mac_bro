@@ -141,8 +141,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 2.h,),
                 Container(
-                  height: 25.h,
-                  color: Colors.red,
+
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
