@@ -7,6 +7,8 @@ import 'package:udevs_mac_bro/model/favorite_model/favorite_model.dart';
 class HomeController extends GetxController{
   final Box productBox = Hive.box('product');
   var d=0.obs;
+  var a=0.obs;
+  var id=0.obs;
   var isFavorite = false.obs;
   List selectedTasks = [];
   RxBool loading=RxBool(false);

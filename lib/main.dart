@@ -5,6 +5,7 @@ import 'package:udevs_mac_bro/routes/app_pages.dart';
 import 'package:udevs_mac_bro/routes/app_routes.dart';
 
 import 'package:sizer/sizer.dart';
+import 'package:udevs_mac_bro/ui/exam.dart';
 
 import 'initial_binding.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
             initialRoute: AppRoutes.main,
             initialBinding: InitialBinding(),
             getPages: AppPages.pages,
-
+            // home: ListTest(),
           );
         }
     );

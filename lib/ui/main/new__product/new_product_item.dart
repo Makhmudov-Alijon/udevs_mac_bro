@@ -138,7 +138,8 @@ Widget allNewProductItem(NewExamProductList allModel,) {
             Container(
 
               margin: EdgeInsets.only(
-                  left: 27.w
+                  left: 27.w,
+                top: 2.h
               ),
               child: FavoriteButton(
                 iconSize: 9.w,

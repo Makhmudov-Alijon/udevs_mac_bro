@@ -34,18 +34,34 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<CategoryModelList> getCategory() async {
+  Future<ExamCategoryModel2> getCategory() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<CategoryModelList>(
+        _setStreamType<ExamCategoryModel2>(
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(_dio.options, '/v1/category',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = CategoryModelList.fromJson(_result.data!);
+    final value = ExamCategoryModel2.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<Children> getChildren() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<Children>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/v1/category',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = Children.fromJson(_result.data!);
     return value;
   }
 

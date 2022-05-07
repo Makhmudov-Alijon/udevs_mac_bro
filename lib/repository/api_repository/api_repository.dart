@@ -1,5 +1,7 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+
+import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
 import 'package:udevs_mac_bro/model/category_model/category_model_list.dart';
 import 'package:udevs_mac_bro/model/new_exam/new_exam_map.dart';
 
@@ -23,7 +25,8 @@ abstract class RestClient {
   Future<BannersModel> getBanner();
 
   @GET('/v1/category')
-  Future<CategoryModelList> getCategory();
+  Future<ExamCategoryModel2> getCategory();
+
   @GET('/v1/featured-list/rasprodazha?lang=ru')
   Future<NewExamMap> getNewProduct(
       @Query("lang") String lang,

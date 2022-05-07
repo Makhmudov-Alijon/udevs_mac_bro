@@ -6,10 +6,25 @@ part 'category_model_list.g.dart';
 @JsonSerializable(explicitToJson: true)
 class CategoryModelList {
   /*
-  {
+
+{
   "categories": [
     {
       "active": true,
+      "children": [
+        {
+          "active": true,
+          "created_at": "string",
+          "description": "string",
+          "id": "string",
+          "image": "string",
+          "name": "string",
+          "order": "0",
+          "slug": "string",
+          "updated_at": "string"
+        }
+      ],
+
       "description": "string",
       "id": "string",
       "image": "string",

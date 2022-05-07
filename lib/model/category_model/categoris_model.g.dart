@@ -16,6 +16,10 @@ CategoryModelItem _$CategoryModelItemFromJson(Map<String, dynamic> json) =>
       json['order'] as String?,
       json['slug'] as String?,
       json['wide'] as bool?,
+      (json['children'] as List<dynamic>?)
+          ?.map(
+              (e) => CategoryChildrenModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$CategoryModelItemToJson(CategoryModelItem instance) =>
@@ -28,4 +32,5 @@ Map<String, dynamic> _$CategoryModelItemToJson(CategoryModelItem instance) =>
       'order': instance.order,
       'slug': instance.slug,
       'wide': instance.wide,
+      'children': instance.children?.map((e) => e.toJson()).toList(),
     };

@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:sizer/sizer.dart';
+import 'package:udevs_mac_bro/controller/home_controller.dart';
 import 'package:udevs_mac_bro/ui/main/banner_page/banner_list.dart';
 import 'package:udevs_mac_bro/ui/main/category_page/category_list.dart';
 import 'package:udevs_mac_bro/ui/main/new__product/new_product_list.dart';
@@ -29,13 +30,8 @@ class _HomePageState extends State<HomePage> {
   List<String> a = [
     "images/imagecarousel.png",
   ];
-
-
-
-
-  
-
-
+  HomeController _controller=Get.put(HomeController());
+  int index=0;
   @override
   Widget build(BuildContext context) {
 
@@ -163,9 +159,8 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
-                  children: allCategoryList(context),
-                )
-
+                  children: allCategoryList(),
+                ),
 
               ],
             ),
