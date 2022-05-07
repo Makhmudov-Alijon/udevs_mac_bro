@@ -100,7 +100,7 @@ class _FavourtiPageState extends State<FavourtiPage> {
                                   child: IconButton(
                                     icon:  Icon(Icons.favorite,color: Colors.blue,size: 3.h,),
                                     onPressed: () {
-                                      _controller.deleteTask(index);
+                                      // _controller.deleteTask(index);
                                       // _controller.isFavorite.value=false;
                                     },
                                   )
