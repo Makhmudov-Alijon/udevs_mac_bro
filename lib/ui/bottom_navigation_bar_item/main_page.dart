@@ -29,26 +29,14 @@ class MainPage extends StatelessWidget {
         return Scaffold(
             backgroundColor: Colors.grey[200],
             body: Obx(() {
-              return logic.loading.value ? Shimmer.fromColors(
-                child: IndexedStack(
-                  index: _controller.tabIndex.value,
-                  children: const [
-                    HomePage(),
-                    BasketPage(),
-                    FavourtiPage(),
-                    ProfilPage(),
-                  ],
-                ),
-                baseColor: Colors.white70,
-                highlightColor: Colors.grey,
-              )
+              return logic.loading.value ? Center(child: const CircularProgressIndicator())
                   :
               IndexedStack(
                 index: _controller.tabIndex.value,
-                children: const [
+                children:  [
                   HomePage(),
                   BasketPage(),
-                  FavourtiPage(),
+                  FavouritePage(),
                   ProfilPage(),
                 ],
               );

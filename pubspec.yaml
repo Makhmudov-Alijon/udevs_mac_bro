@@ -55,6 +55,8 @@ dependencies:
   favorite_button: ^0.0.4
 
   get_storage: ^2.0.3
+  like_button: ^2.0.4
+  flutter_custom_carousel_slider: ^1.2.0
 
 
 dev_dependencies:

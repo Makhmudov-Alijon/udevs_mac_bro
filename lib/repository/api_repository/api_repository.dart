@@ -10,7 +10,7 @@ import 'package:udevs_mac_bro/model/new_exam/new_exam_map.dart';
 
 import '../../model/banner_model/banners_model.dart';
 
-import '../../model/categoris_id_model/category_id_model_map.dart';
+
 
 
 

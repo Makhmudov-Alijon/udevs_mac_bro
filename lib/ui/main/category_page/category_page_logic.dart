@@ -21,7 +21,7 @@ class Category_pageLogic extends GetxController {
     ExamCategoryModel2 listModel = await restClient.getCategory();
     loading(false);
     category(listModel.categories);
-    children(listModel.categories!.elementAt(_controller.id.value).children);
+    children(listModel.categories!.elementAt(index).children);
 
   }
 }
