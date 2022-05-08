@@ -1,5 +1,6 @@
 
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,15 +34,14 @@ Widget allCategoryItem(Categories allModel,) {
               margin: EdgeInsets.only(
                 top: 2.h
               ),
-              child: FancyShimmerImage(
-                  imageUrl: allModel.image.toString(),
-                  boxFit: BoxFit.fitHeight,
-                  errorWidget:Container(
+              child: CachedNetworkImage(
+                imageUrl: allModel.image.toString(),
+                placeholder: (context, url) => Image(
 
-                    child: Image(
-                      image: AssetImage("images/Vectomacr.png"),
-                    ),
-                  )
+                  image: AssetImage('images/Vectomacr.png'),),
+                errorWidget: (context, url, error) => Image(
+
+                  image: AssetImage('images/Vectomacr.png'),),
               ),
             ),
           ),

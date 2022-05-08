@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
                           autoPlayCurve: Curves.fastOutSlowIn,
                           enableInfiniteScroll: true,
                           autoPlayAnimationDuration: const Duration(
-                              milliseconds: 500),
+                              milliseconds: 300),
                           viewportFraction: 0.9, // onScrolled: (index) {
                             onPageChanged: (index, reason) {
                               _current.value = index;

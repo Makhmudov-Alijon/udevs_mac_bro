@@ -57,6 +57,7 @@ dependencies:
   get_storage: ^2.0.3
   like_button: ^2.0.4
   flutter_custom_carousel_slider: ^1.2.0
+  cached_network_image: ^3.2.0
 
 
 dev_dependencies:

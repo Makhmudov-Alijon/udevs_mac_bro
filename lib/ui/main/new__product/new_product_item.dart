@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -45,21 +46,14 @@ Widget allNewProductItem(NewExamProductList allModel,) {
                 width: 50.w,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(4.w),
-                  child: Container(
-                    margin: EdgeInsets.only(
+                  child: CachedNetworkImage(
+                    imageUrl: allModel.image.toString(),
+                    placeholder: (context, url) => Image(
 
-                    ),
-                    child: FancyShimmerImage(
+                    image: AssetImage('images/Vectomacr.png'),),
+                    errorWidget: (context, url, error) => Image(
 
-                        imageUrl: allModel.image.toString(),
-                        boxFit: BoxFit.fitHeight,
-                        errorWidget: Container(
-
-                          child: Image(
-                            image: AssetImage("images/Vectomacr.png"),
-                          ),
-                        )
-                    ),
+                      image: AssetImage('images/Vectomacr.png'),),
                   ),
                 ),
               ),
