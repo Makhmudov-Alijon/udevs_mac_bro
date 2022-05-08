@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 
 
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 import 'package:udevs_mac_bro/ui/main/banner_page/banner_list.dart';
@@ -30,25 +31,30 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return Scaffold(
+        backgroundColor: HexColor('#E5E5E5'),
         appBar: AppBar(
           title: Row(
             children: [
-              Expanded(
-                child: Container(
-                  height: 5.h,
-                  margin: EdgeInsets.only(
+              Container(
+                height: 6.h,
+                width: 80.w,
+                margin: EdgeInsets.only(
 
 
-                      right: 3.w
+                    right: 3.w
 
-                  ),
-                  child: TextField(
-                    controller: _editingController,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        )
-                    ),
+                ),
+                child: TextField(
+                  controller: _editingController,
+
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: HexColor('#E5E5E5'),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                      ),
+                      prefixIcon: Icon(Icons.search),
+                    hintText: 'Поиск'
                   ),
                 ),
               ),
@@ -58,11 +64,11 @@ class HomePage extends StatelessWidget {
 
                   ),
                   child: Icon(
-                    Icons.notifications_none_rounded, color: Colors.grey,)
+                    Icons.notifications_none_rounded, color: Colors.grey,size: 4.h,)
               )
             ],
           ),
-          toolbarHeight: 7.h,
+          toolbarHeight: 8.h,
           backgroundColor: Colors.white,
           elevation: 0,
         ),
@@ -85,13 +91,10 @@ class HomePage extends StatelessWidget {
                         carouselController: _controller,
                         items: itemBanner,
                         options: CarouselOptions(
-                          height: 23.h,
+                          height: 25.h,
                           enlargeCenterPage: true,
                           pageSnapping: true,
                           autoPlay: true,
-
-
-
                           autoPlayCurve: Curves.fastOutSlowIn,
                           enableInfiniteScroll: true,
                           autoPlayAnimationDuration: const Duration(

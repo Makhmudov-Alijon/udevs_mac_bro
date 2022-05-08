@@ -12,7 +12,7 @@ import '../../core/card_widget/favorite_card_vidget.dart';
 import '../../core/card_widget/new_card_widget.dart';
 
 class FavouritePage extends StatelessWidget {
-  const FavouritePage({Key? key}) : super(key: key);
+   FavouritePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

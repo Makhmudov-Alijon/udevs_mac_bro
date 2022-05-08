@@ -20,14 +20,12 @@ Widget allProductItem(BannerModel allModel,) {
               borderRadius: BorderRadius.circular(4.w),
               child: CachedNetworkImage(
                 imageUrl: allModel.image.toString(),
-               imageBuilder: (context, imageProvider)=>Expanded(
-                 child: Container(
-                   decoration: BoxDecoration(
-                     image: DecorationImage(
-                         image: imageProvider,
-                         fit: BoxFit.cover,
-                         ),
-                   ),
+               imageBuilder: (context, imageProvider)=>Container(
+                 decoration: BoxDecoration(
+                   image: DecorationImage(
+                       image: imageProvider,
+                     fit: BoxFit.cover
+                       ),
                  ),
                ),
                 placeholder: (context, url) => Center(
