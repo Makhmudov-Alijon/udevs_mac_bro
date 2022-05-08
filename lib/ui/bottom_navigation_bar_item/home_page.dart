@@ -2,8 +2,8 @@ import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_carousel_slider/flutter_custom_carousel_slider.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-
 
 
 import 'package:get/get.dart';
@@ -17,24 +17,17 @@ import 'package:udevs_mac_bro/ui/main/category_page/category_list.dart';
 import 'package:udevs_mac_bro/ui/main/new__product/new_product_list.dart';
 
 
+class HomePage extends StatelessWidget {
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomeController controller = Get.put(HomeController());
+  var pageIndex = 0.obs;
+  TextEditingController _editingController = TextEditingController();
+  RxInt _current = 0.obs;
+  final CarouselController _controller = CarouselController();
+  final List<Widget> itemBanner = allBannerList();
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  int pageIndex = 0;
-  List<String> a = [
-    "images/imagecarousel.png",
-  ];
-  HomeController _controller=Get.put(HomeController());
-  int index=0;
   @override
   Widget build(BuildContext context) {
-
     return Obx(() {
       return Scaffold(
         appBar: AppBar(
@@ -50,6 +43,7 @@ class _HomePageState extends State<HomePage> {
 
                   ),
                   child: TextField(
+                    controller: _editingController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
@@ -59,11 +53,12 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(
+                  margin: EdgeInsets.only(
 
 
-                ),
-                child:Icon(Icons.notifications_none_rounded,color: Colors.grey,)
+                  ),
+                  child: Icon(
+                    Icons.notifications_none_rounded, color: Colors.grey,)
               )
             ],
           ),
@@ -87,33 +82,54 @@ class _HomePageState extends State<HomePage> {
 
                     children: [
                       CarouselSlider(
-                        items: allBannerList(),
+                        carouselController: _controller,
+                        items: itemBanner,
                         options: CarouselOptions(
-                          height: 20.h ,
+                          height: 23.h,
                           enlargeCenterPage: true,
                           pageSnapping: true,
                           autoPlay: true,
-                          // aspectRatio: 16 / 9,
+
+
 
                           autoPlayCurve: Curves.fastOutSlowIn,
                           enableInfiniteScroll: true,
                           autoPlayAnimationDuration: const Duration(
-                              milliseconds: 800),
-                          viewportFraction: 0.9,
-                          onScrolled: (index) {
-                            setState(() {
-                              pageIndex = index as int;
-                            });
-                          },
+                              milliseconds: 500),
+                          viewportFraction: 0.9, // onScrolled: (index) {
+                            onPageChanged: (index, reason) {
+                              _current.value = index;
+                            }
 
                         ),
                       ),
-                      // CarouselIndicator(
-                      //   activeColor: Colors.black,
-                      //   count: bannerlist.allProductList(),
-                      //   index: pageIndex,
-                      //   color: Colors.red,
-                      // ),
+                      Obx(() {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: itemBanner
+                              .asMap()
+                              .entries
+                              .map((entry) {
+                            return GestureDetector(
+                              onTap: () =>
+                                  _controller.animateToPage(entry.key),
+                              child: Container(
+                                width:_current.value == entry.key ? 3.w :2.w,
+                                height:_current.value == entry.key ? 3.h :2.h,
+                                margin: EdgeInsets.symmetric(
+                                    vertical: 8.0, horizontal: 4.0),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)
+                                        .withOpacity(
+                                        _current.value == entry.key
+                                            ? 0.9
+                                            : 0.1)),
+                              ),
+                            );
+                          }).toList(),
+                        );
+                      }),
                     ],
                   ),
                 ),
@@ -121,44 +137,45 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(
-                          top: 2.5.h,
-                          left:5.w
+
+                          left: 5.w
                       ),
                       child: Text('Новые', style: TextStyle(fontSize: 20),),
                     ),
                     Container(
                       margin: EdgeInsets.only(
-                          top: 2.5.h,
-                          left:68.w
+
+                          left: 68.w
                       ),
                       child: Icon(Icons.arrow_forward),
                     )
                   ],
                 ),
                 SizedBox(height: 2.h,),
-                Container(
+                Obx(() {
+                  return Container(
 
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: allNewProductList(),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: allNewProductList(),
+                      ),
                     ),
-                  ),
-                ),
-
-
+                  );
+                }),
                 Container(
                   margin: EdgeInsets.only(
-                      top: 2.5.h,
-                      left:5.w
+                      // top: 2.h,
+                      left: 5.w
                   ),
                   child: Text('Категории', style: TextStyle(fontSize: 20),),
                 ),
 
                 StaggeredGrid.count(
                   crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
                   children: allCategoryList(),
                 ),
 
@@ -172,5 +189,5 @@ class _HomePageState extends State<HomePage> {
       );
     });
   }
-
 }
+

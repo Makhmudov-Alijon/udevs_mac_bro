@@ -4,7 +4,7 @@ part 'favorite_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class FavoriteModel {
-  final String? id;
+  late final String? id;
   final String? image;
   final String? title;
 

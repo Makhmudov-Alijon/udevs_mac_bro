@@ -7,18 +7,12 @@ import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 import 'package:udevs_mac_bro/model/favorite_model/favorite_model.dart';
 
+
 import '../../core/card_widget/favorite_card_vidget.dart';
 import '../../core/card_widget/new_card_widget.dart';
 
-class FavourtiPage extends StatefulWidget {
-  const FavourtiPage({Key? key}) : super(key: key);
-
-  @override
-  State<FavourtiPage> createState() => _FavourtiPageState();
-}
-
-class _FavourtiPageState extends State<FavourtiPage> {
-  final cardfavrite = FavoriterCardd();
+class FavouritePage extends StatelessWidget {
+  const FavouritePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +29,7 @@ class _FavourtiPageState extends State<FavourtiPage> {
             children: [
               Container(
                 margin: EdgeInsets.only(
-                  top: 5.h
+                    top: 5.h
                 ),
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -50,7 +44,7 @@ class _FavourtiPageState extends State<FavourtiPage> {
                   itemBuilder: (context, index) {
                     var model = _controller.productBox.getAt(index);
                     var taskMap = jsonDecode(model);
-                    var taskModel = FavoriteModel.fromJson(taskMap);
+                    _controller.taskModel = FavoriteModel.fromJson(taskMap);
                     _controller.d.value=index;
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +75,7 @@ class _FavourtiPageState extends State<FavourtiPage> {
 
                                     ),
                                     child:FancyShimmerImage(
-                                        imageUrl: taskModel.image.toString(),
+                                        imageUrl: _controller.taskModel.image.toString(),
                                         boxFit: BoxFit.fitHeight,
                                         errorWidget:Container(
 
@@ -100,7 +94,9 @@ class _FavourtiPageState extends State<FavourtiPage> {
                                   child: IconButton(
                                     icon:  Icon(Icons.favorite,color: Colors.blue,size: 3.h,),
                                     onPressed: () {
-                                      // _controller.deleteTask(index);
+                                      _controller.deleteTask(index);
+
+
                                       // _controller.isFavorite.value=false;
                                     },
                                   )
@@ -113,7 +109,7 @@ class _FavourtiPageState extends State<FavourtiPage> {
                           margin: EdgeInsets.only(
                               left: 10
                           ),
-                          child: Text(taskModel.title.toString()),
+                          child: Text(_controller.taskModel.title.toString()),
                         ),
                         // Container(
                         //   margin: EdgeInsets.only(
@@ -126,6 +122,7 @@ class _FavourtiPageState extends State<FavourtiPage> {
                   },
                 ),
               ),
+
             ],
           ),
         ),
@@ -133,3 +130,4 @@ class _FavourtiPageState extends State<FavourtiPage> {
     });
   }
 }
+
