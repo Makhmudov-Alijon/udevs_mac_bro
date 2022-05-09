@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/routes/app_routes.dart';
-import 'package:udevs_mac_bro/ui/main/category_child_item/category_child_item_view.dart';
+
 class CategoryChild extends StatelessWidget {
    CategoryChild({
     Key? key,
@@ -18,7 +18,7 @@ HomeController _controller=Get.put(HomeController());
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        margin: EdgeInsets.only(left: 10, top: 20),
+        margin: EdgeInsets.only(left: 3.w, top: 2.h,right: 3.w,bottom: 1.h),
         height: 20.h,
         width: 25.w,
         decoration: BoxDecoration(

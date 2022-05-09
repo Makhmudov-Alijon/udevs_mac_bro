@@ -16,9 +16,7 @@ class CategoryChildAllItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
-        top: 3.h
-      ),
+      margin: EdgeInsets.only(left: 3.w, top: 2.h,right: 3.w,bottom: 1.h),
       child: Column(
 
         crossAxisAlignment: CrossAxisAlignment.start,

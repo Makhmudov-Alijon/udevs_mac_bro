@@ -1,18 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:udevs_mac_bro/controller/home_controller.dart';
+
 
 import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
-import 'package:udevs_mac_bro/model/category_model/categoris_model.dart';
+
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/routes/app_routes.dart';
-import 'package:udevs_mac_bro/ui/main/category_page/category_item_page.dart';
+
 import 'package:udevs_mac_bro/ui/main/category_page/exam_category.dart';
 
-HomeController _controller = Get.put(HomeController());
+
 
 Widget allCategoryItem(
   Categories allModel,

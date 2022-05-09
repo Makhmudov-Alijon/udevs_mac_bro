@@ -1,10 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/model/category_child_item.dart';
-import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
-import 'package:udevs_mac_bro/routes/app_routes.dart';
+
 
 class CategoryChildItemm extends StatelessWidget {
    CategoryChildItemm({Key? key, required this.allModel}) : super(key: key);
@@ -13,7 +12,7 @@ class CategoryChildItemm extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        margin: EdgeInsets.only(left: 2.w, top: 20,right: 2.w),
+        margin: EdgeInsets.only(left: 3.w, top: 2.h,right: 3.w,bottom: 1.h),
         height: 25.h,
         width: 25.w,
         decoration: BoxDecoration(
