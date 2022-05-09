@@ -1,5 +1,7 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+import 'package:udevs_mac_bro/model/category_child_item.dart';
+import 'package:udevs_mac_bro/model/category_chils.dart';
 
 import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
 import 'package:udevs_mac_bro/model/category_model/category_model_list.dart';
@@ -30,5 +32,13 @@ abstract class RestClient {
   @GET('/v1/featured-list/rasprodazha?lang=ru')
   Future<NewExamMap> getNewProduct(
       @Query("lang") String lang,
+      );
+  @GET('/v1/product?category={id}')
+  Future<CategoryChildItem> getCategoryChildItem(
+      @Path("id") String id
+      );
+  @GET('/v1/product-variant?category={id}&limit=1000')
+  Future<CategoryChils> getCategoryChildAllItem(
+      @Path("id") String id,
       );
 }

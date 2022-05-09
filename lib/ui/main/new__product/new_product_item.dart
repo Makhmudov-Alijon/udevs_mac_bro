@@ -19,7 +19,7 @@ var randomId = getRandomString(200);
 List b = [];
 
 Widget allNewProductItem(NewExamProductList allModel,) {
-
+controller.sezrch.value=allModel.name!.toLowerCase().toLowerCase();
   return Container(
     child: Column(
 
