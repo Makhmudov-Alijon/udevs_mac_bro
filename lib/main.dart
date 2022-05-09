@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
 
             ),
-            initialRoute: AppRoutes.main,
+            initialRoute: AppRoutes.initial,
             initialBinding: InitialBinding(),
             getPages: AppPages.pages,
             // home: ListTest(),

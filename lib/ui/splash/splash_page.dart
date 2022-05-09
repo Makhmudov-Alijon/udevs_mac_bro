@@ -41,10 +41,10 @@ SplashController _controller=Get.put(SplashController());
                 image: AssetImage('images/Vectomacr.png'),
               ),
             ),
-            Center(
-              child: Text('For Clients',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-            ),
+            // Center(
+            //   child: Text('For Clients',
+            //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+            // ),
 
           ],
         ),

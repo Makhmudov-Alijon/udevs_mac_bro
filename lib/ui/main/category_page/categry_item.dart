@@ -10,6 +10,7 @@ import 'package:udevs_mac_bro/model/category_model/categoris_model.dart';
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/routes/app_routes.dart';
 import 'package:udevs_mac_bro/ui/main/category_page/category_item_page.dart';
+import 'package:udevs_mac_bro/ui/main/category_page/exam_category.dart';
 
 HomeController _controller = Get.put(HomeController());
 
@@ -50,7 +51,7 @@ Widget allCategoryItem(
       ),
     ),
     onTap: (){
-      Get.toNamed(AppRoutes.subCategory, arguments: allModel.children,);
+      Get.toNamed(AppRoutes.subCategory, arguments: ExamCategory(name: allModel.name.toString(), children: allModel.children),);
     },
   );
 }
