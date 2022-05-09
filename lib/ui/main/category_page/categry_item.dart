@@ -19,7 +19,7 @@ Widget allCategoryItem(
 ) {
   return GestureDetector(
     child: Container(
-      margin: EdgeInsets.only(left: 10, top: 20),
+      margin: EdgeInsets.only(left: 3.w, top: 2.h,right: 3.w,bottom: 1.h),
       height: 20.h,
       width: 25.w,
       decoration: BoxDecoration(

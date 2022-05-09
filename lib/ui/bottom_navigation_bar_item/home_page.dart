@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return Scaffold(
-        backgroundColor: HexColor('#E5E5E5'),
+        // backgroundColor: HexColor('#E5E5E5'),
         appBar: AppBar(
           title: Row(
             children: [
