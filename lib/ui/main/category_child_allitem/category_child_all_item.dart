@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
-import 'package:udevs_mac_bro/model/category_chils.dart';
+import 'package:udevs_mac_bro/model/category_model/category_chils.dart';
 import 'package:udevs_mac_bro/ui/exam.dart';
 class CategoryChildAllItem extends StatelessWidget {
    CategoryChildAllItem({Key? key,required this.allModel}) : super(key: key);

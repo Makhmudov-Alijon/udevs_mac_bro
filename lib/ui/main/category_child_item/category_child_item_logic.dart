@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
-import 'package:udevs_mac_bro/model/category_child_item.dart';
+import 'package:udevs_mac_bro/model/category_model/category_child_item.dart';
 import 'package:udevs_mac_bro/repository/api_repository/api_repository.dart';
 
 class Category_child_itemLogic extends GetxController {

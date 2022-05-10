@@ -1,11 +1,13 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
-import 'package:udevs_mac_bro/model/category_child_item.dart';
-import 'package:udevs_mac_bro/model/category_chils.dart';
+import 'package:udevs_mac_bro/model/category_model/category_child_item.dart';
+import 'package:udevs_mac_bro/model/category_model/category_chils.dart';
 
 import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
-import 'package:udevs_mac_bro/model/category_model/category_model_list.dart';
+
 import 'package:udevs_mac_bro/model/new_exam/new_exam_map.dart';
+
+
 
 
 
@@ -41,4 +43,5 @@ abstract class RestClient {
   Future<CategoryChils> getCategoryChildAllItem(
       @Path("id") String id,
       );
+
 }

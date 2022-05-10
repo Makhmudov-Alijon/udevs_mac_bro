@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:udevs_mac_bro/model/category_child_item.dart';
+import 'package:udevs_mac_bro/model/category_model/category_child_item.dart';
 import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
 import 'package:udevs_mac_bro/routes/app_routes.dart';
 import 'package:udevs_mac_bro/ui/main/category_child_allitem/category_child_allitem_view.dart';
