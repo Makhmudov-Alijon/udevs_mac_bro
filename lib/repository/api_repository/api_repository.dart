@@ -7,7 +7,7 @@ import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
 
 import 'package:udevs_mac_bro/model/new_exam/new_exam_map.dart';
 
-
+import 'package:udevs_mac_bro/model/product_model/product_model.dart';
 
 
 
@@ -43,5 +43,8 @@ abstract class RestClient {
   Future<CategoryChils> getCategoryChildAllItem(
       @Path("id") String id,
       );
-
+  @GET('/v1/product/{id}')
+  Future<ProductModel> getProductId(
+      @Path("id") String id,
+      );
 }

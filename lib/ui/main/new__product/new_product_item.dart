@@ -2,15 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:like_button/like_button.dart';
+
 
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 
 import 'package:udevs_mac_bro/model/new_exam/new_product_list_item.dart';
 import 'package:sizer/sizer.dart';
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
+
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/ui/exam.dart';
+import 'package:udevs_mac_bro/ui/product_idpage/product_idpage_view.dart';
 
 
 HomeController controller = Get.put(HomeController());
@@ -110,7 +111,8 @@ controller.sezrch.value=allModel.name!.toLowerCase().toLowerCase();
       ),
     ),
     onTap: (){
-
+      print(allModel.id.toString());
+      Get.to(()=>ProductIdpagePage(),arguments: allModel.id.toString());
     },
   );
 

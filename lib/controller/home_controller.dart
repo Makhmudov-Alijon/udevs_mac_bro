@@ -16,6 +16,7 @@ class HomeController extends GetxController{
   var b=0.obs;
   var sezrch=''.obs;
   var id=''.obs;
+  var idd;
   var isFavorite = false.obs;
   var favorite=false.obs;
   List selectedTasks = [];

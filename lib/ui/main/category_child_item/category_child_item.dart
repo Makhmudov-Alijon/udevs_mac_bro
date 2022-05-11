@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/model/category_model/category_child_item.dart';
+import 'package:udevs_mac_bro/ui/product_idpage/product_idpage_view.dart';
 
 
 class CategoryChildItemm extends StatelessWidget {
@@ -53,7 +55,8 @@ class CategoryChildItemm extends StatelessWidget {
         ),
       ),
       onTap: (){
-
+        print(allModel.id.toString());
+        Get.to(()=>ProductIdpagePage(),arguments: allModel.id.toString());
       },
     );
   }

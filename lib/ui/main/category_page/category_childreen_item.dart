@@ -52,6 +52,7 @@ HomeController _controller=Get.put(HomeController());
       onTap: () {
         _controller.id.value=allModel.id.toString();
         Get.toNamed(AppRoutes.categoryChild,arguments: allModel.name);
+
       },
     );
   }

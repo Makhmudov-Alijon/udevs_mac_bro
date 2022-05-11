@@ -58,7 +58,8 @@ dependencies:
   like_button: ^2.0.4
   flutter_custom_carousel_slider: ^1.2.0
   cached_network_image: ^3.2.0
-
+  selectable_container: ^1.0.2
+  flutter_image_slideshow: ^0.1.2
 
 dev_dependencies:
   flutter_test:
