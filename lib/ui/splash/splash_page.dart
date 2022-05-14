@@ -1,10 +1,10 @@
-import 'dart:async';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/controller/splash_controller.dart';
-import 'package:udevs_mac_bro/ui/bottom_navigation_bar_item/main_page.dart';
+
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -17,13 +17,10 @@ class _SplashPageState extends State<SplashPage> {
 
 
 
-SplashController _controller=Get.put(SplashController());
+
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery
-        .of(context)
-        .size
-        .height;
+
     var width = MediaQuery
         .of(context)
         .size

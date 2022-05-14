@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AppRoutes {
   AppRoutes._();
 
@@ -9,5 +11,5 @@ class AppRoutes {
   static const subCategory='/subcategory';
   static const categoryChild='/categoryChild';
   static const categoryAllChild='/categoryAllChild';
-
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 }

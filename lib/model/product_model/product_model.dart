@@ -26,17 +26,17 @@ ProductModel copyWith({  Product? product,
 class Product {
   Product({
       bool? active, 
-      int? averageRate, 
+      num? averageRate,
       Category? category, 
-      String? characteristics, 
-      int? cheapestPrice, 
+      String? characteristics,
+    num? cheapestPrice,
       String? code, 
-      String? description, 
-      int? discount, 
+      String? description,
+    num? discount,
       List<String>? gallery, 
       String? id, 
-      String? image, 
-      int? installmentAmount, 
+      String? image,
+    num? installmentAmount,
       Meta? meta, 
       String? name, 
       String? order, 
@@ -45,8 +45,8 @@ class Product {
       List<Properties>? properties, 
       String? reviewsCount, 
       String? slug, 
-      List<Variants>? variants, 
-      int? warrantyPeriod,}){
+      List<Variants>? variants,
+    num? warrantyPeriod,}){
     _active = active;
     _averageRate = averageRate;
     _category = category;
@@ -106,17 +106,17 @@ class Product {
     _warrantyPeriod = json['warranty_period'];
   }
   bool? _active;
-  int? _averageRate;
+  num? _averageRate;
   Category? _category;
   String? _characteristics;
-  int? _cheapestPrice;
+  num? _cheapestPrice;
   String? _code;
   String? _description;
-  int? _discount;
+  num? _discount;
   List<String>? _gallery;
   String? _id;
   String? _image;
-  int? _installmentAmount;
+  num? _installmentAmount;
   Meta? _meta;
   String? _name;
   String? _order;
@@ -126,19 +126,19 @@ class Product {
   String? _reviewsCount;
   String? _slug;
   List<Variants>? _variants;
-  int? _warrantyPeriod;
+  num? _warrantyPeriod;
 Product copyWith({  bool? active,
-  int? averageRate,
+  num? averageRate,
   Category? category,
   String? characteristics,
-  int? cheapestPrice,
+  num? cheapestPrice,
   String? code,
   String? description,
-  int? discount,
+  num? discount,
   List<String>? gallery,
   String? id,
   String? image,
-  int? installmentAmount,
+  num? installmentAmount,
   Meta? meta,
   String? name,
   String? order,
@@ -148,7 +148,7 @@ Product copyWith({  bool? active,
   String? reviewsCount,
   String? slug,
   List<Variants>? variants,
-  int? warrantyPeriod,
+  num? warrantyPeriod,
 }) => Product(  active: active ?? _active,
   averageRate: averageRate ?? _averageRate,
   category: category ?? _category,
@@ -173,17 +173,17 @@ Product copyWith({  bool? active,
   warrantyPeriod: warrantyPeriod ?? _warrantyPeriod,
 );
   bool? get active => _active;
-  int? get averageRate => _averageRate;
+  num? get averageRate => _averageRate;
   Category? get category => _category;
   String? get characteristics => _characteristics;
-  int? get cheapestPrice => _cheapestPrice;
+  num? get cheapestPrice => _cheapestPrice;
   String? get code => _code;
   String? get description => _description;
-  int? get discount => _discount;
+  num? get discount => _discount;
   List<String>? get gallery => _gallery;
   String? get id => _id;
   String? get image => _image;
-  int? get installmentAmount => _installmentAmount;
+  num? get installmentAmount => _installmentAmount;
   Meta? get meta => _meta;
   String? get name => _name;
   String? get order => _order;
@@ -193,7 +193,7 @@ Product copyWith({  bool? active,
   String? get reviewsCount => _reviewsCount;
   String? get slug => _slug;
   List<Variants>? get variants => _variants;
-  int? get warrantyPeriod => _warrantyPeriod;
+  num? get warrantyPeriod => _warrantyPeriod;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

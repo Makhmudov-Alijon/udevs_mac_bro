@@ -134,11 +134,11 @@ Price priceFromJson(String str) => Price.fromJson(json.decode(str));
 String priceToJson(Price data) => json.encode(data.toJson());
 class Price {
   Price({
-      int? oldPrice, 
-      int? price, 
-      int? secondPrice, 
-      int? secondUzsPrice, 
-      int? uzsPrice,}){
+      num? oldPrice,
+    num? price,
+    num? secondPrice,
+    num? secondUzsPrice,
+    num? uzsPrice,}){
     _oldPrice = oldPrice;
     _price = price;
     _secondPrice = secondPrice;
@@ -153,27 +153,27 @@ class Price {
     _secondUzsPrice = json['second_uzs_price'];
     _uzsPrice = json['uzs_price'];
   }
-  int? _oldPrice;
-  int? _price;
-  int? _secondPrice;
-  int? _secondUzsPrice;
-  int? _uzsPrice;
-Price copyWith({  int? oldPrice,
-  int? price,
-  int? secondPrice,
-  int? secondUzsPrice,
-  int? uzsPrice,
+  num? _oldPrice;
+  num? _price;
+  num? _secondPrice;
+  num? _secondUzsPrice;
+  num? _uzsPrice;
+Price copyWith({  num? oldPrice,
+  num? price,
+  num? secondPrice,
+  num? secondUzsPrice,
+  num? uzsPrice,
 }) => Price(  oldPrice: oldPrice ?? _oldPrice,
   price: price ?? _price,
   secondPrice: secondPrice ?? _secondPrice,
   secondUzsPrice: secondUzsPrice ?? _secondUzsPrice,
   uzsPrice: uzsPrice ?? _uzsPrice,
 );
-  int? get oldPrice => _oldPrice;
-  int? get price => _price;
-  int? get secondPrice => _secondPrice;
-  int? get secondUzsPrice => _secondUzsPrice;
-  int? get uzsPrice => _uzsPrice;
+  num? get oldPrice => _oldPrice;
+  num? get price => _price;
+  num? get secondPrice => _secondPrice;
+  num? get secondUzsPrice => _secondUzsPrice;
+  num? get uzsPrice => _uzsPrice;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
