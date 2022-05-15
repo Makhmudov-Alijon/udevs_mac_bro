@@ -1,4 +1,4 @@
-import 'package:alice/alice.dart';
+
 
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -10,7 +10,7 @@ import 'package:udevs_mac_bro/model/category_model/ExamCategoryModel2.dart';
 import 'package:udevs_mac_bro/model/new_exam/new_exam_map.dart';
 
 import 'package:udevs_mac_bro/model/product_model/product_model.dart';
-import 'package:udevs_mac_bro/routes/app_routes.dart';
+
 
 
 
@@ -26,12 +26,7 @@ part 'api_repository.g.dart';
 
 @RestApi(baseUrl: "https://api.client.macbro.uz")
 abstract class RestClient {
-  static Alice alice = Alice(
-    navigatorKey: AppRoutes.navigatorKey,
-    showNotification: true,
-    showInspectorOnShake: false,
-    darkTheme: false,
-  );
+
 
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 

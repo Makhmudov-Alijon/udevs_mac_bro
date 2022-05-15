@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../routes/app_routes.dart';
+import 'package:udevs_mac_bro/ui/login_page/otp_login_page.dart';
+
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -91,7 +92,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         onTap: (){
-          Get.toNamed(AppRoutes.detail);
+
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpLoginPage()));
         },
       ),
     );
