@@ -11,7 +11,7 @@ class OtpPageLogic extends GetxController{
   userPasscode(String passcode,String passcodeToken,String fcmToken)async{
     UserCreatePasscodeBody userCreatePasscodeBody=UserCreatePasscodeBody(passcode: passcode, passcodeToken: passcodeToken, fcmToken: fcmToken);
     UserCreatrePasscode userCreatrePasscode=await restClient.userCreatePasscode(userCreatePasscodeBody, '7d4a4c38-dd84-4902-b744-0488b80a4c03') ;
-    setToken(userCreatrePasscode.data!.token!.accessToken!);
+    // setToken(userCreatrePasscode.data!.token!.accessToken!);
   }
   setToken( String token){
     box.put('key', token);

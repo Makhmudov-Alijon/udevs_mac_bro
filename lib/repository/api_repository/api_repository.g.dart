@@ -179,7 +179,7 @@ class _RestClient implements RestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{
       r'Authorization': authorization,
-      r'platformId': platformId
+      r'platform-id': platformId
     };
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
@@ -188,6 +188,24 @@ class _RestClient implements RestClient {
             Options(method: 'GET', headers: _headers, extra: _extra)
                 .compose(
                     _dio.options, 'https://api.client.macbro.uz/v1/user/me',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = UserMe.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<UserMe> getUser(id, platformId) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'platform-id': platformId};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<UserMe>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(
+                    _dio.options, 'https://api.client.macbro.uz/v1/user/${id}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = UserMe.fromJson(_result.data!);

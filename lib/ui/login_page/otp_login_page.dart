@@ -18,7 +18,7 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
   final logic = Get.put(OtpPageLogic());
 
   TextEditingController editingController = TextEditingController();
-  Box box = Hive.box('product');
+  Box box = Hive.box('token');
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +57,7 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
                   ),
                   child: TextField(
                     controller: editingController,
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -90,11 +91,15 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
           ),
         ),
         onTap: () {
-          logic.userPasscode(editingController.text, box.get('key'),
-              "emc-hQF5QjCWDrVirT28lU:APA91bEUWAsloZMGuz10sMquVPxQxwt-wNGJoR-LCcOuwrgG68C9r0KScDWJdHR6l_ZB5X-INnhZWhR_5mTlUfhqcFk4rQ1A9p9i4YShpLLGm6o-wj5zdnWKh_rgJHo8DJikuP6hg-9O");
-          print(logic.getToken());
+          // logic.userPasscode(editingController.text, box.get('key'),
+          //     "emc-hQF5QjCWDrVirT28lU:APA91bEUWAsloZMGuz10sMquVPxQxwt-wNGJoR-LCcOuwrgG68C9r0KScDWJdHR6l_ZB5X-INnhZWhR_5mTlUfhqcFk4rQ1A9p9i4YShpLLGm6o-wj5zdnWKh_rgJHo8DJikuP6hg-9O");
+          // print(logic.getToken());
+          if(editingController.text.length==6){
+            Get.offAllNamed(AppRoutes.mainPageScreen);
+          }else{
+            return null;
+          }
 
-          Get.offAllNamed(AppRoutes.mainPageScreen);
         },
       ),
     );

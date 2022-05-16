@@ -34,6 +34,9 @@ class HomeController extends GetxController{
     productBox.deleteAt(index);
     update();
   }
+  clearFavorite(){
+    productBox.clear();
+  }
 
 
 }

@@ -58,6 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: TextField(
                     controller: textEditingController,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),

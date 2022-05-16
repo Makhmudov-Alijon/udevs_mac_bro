@@ -81,4 +81,9 @@ abstract class RestClient {
       @Header("Authorization") String authorization,
       @Header("platform-id") String platformId,
       );
+  @GET('https://api.client.macbro.uz/v1/user/{id}')
+  Future<UserMe> getUser(
+      @Path("id") String id,
+      @Header("platform-id") String platformId,
+      );
 }

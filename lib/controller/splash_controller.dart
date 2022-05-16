@@ -13,7 +13,7 @@ import 'package:udevs_mac_bro/routes/app_routes.dart';
 
 
 class SplashController extends GetxController{
-  Box box=Hive.box('product');
+  Box box=Hive.box('token');
   time(context){
     Timer(const Duration(seconds: 1), () {
       if(box.isEmpty){

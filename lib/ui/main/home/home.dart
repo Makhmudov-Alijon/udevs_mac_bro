@@ -15,10 +15,11 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import 'package:sizer/sizer.dart';
+import 'package:udevs_mac_bro/controller/exam_home_controller.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 
 import 'package:udevs_mac_bro/ui/main/home/banner_page/banner_list.dart';
-import 'package:udevs_mac_bro/ui/main/home/banner_page/banner_widget.dart';
+
 
 import 'package:udevs_mac_bro/ui/main/home/category_page/category_list.dart';
 import 'package:udevs_mac_bro/ui/main/home/new__product/new_product_list.dart';
@@ -33,7 +34,7 @@ class HomePage extends StatelessWidget {
   RxInt _current = 0.obs;
   final CarouselController _controller = CarouselController();
   final List<Widget> itemBanner = allBannerList();
-
+ExamHomeController _examHomeControllercontroller=Get.put(ExamHomeController());
   HomePage({Key? key}) : super(key: key);
 
   @override

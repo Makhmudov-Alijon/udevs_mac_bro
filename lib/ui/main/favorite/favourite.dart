@@ -95,7 +95,6 @@ class FavouritePage extends StatelessWidget {
                                     onPressed: () {
                                       _controller.deleteTask(index);
 
-
                                       // _controller.isFavorite.value=false;
                                     },
                                   )
@@ -110,12 +109,6 @@ class FavouritePage extends StatelessWidget {
                           ),
                           child: Text(_controller.taskModel.title.toString()),
                         ),
-                        // Container(
-                        //   margin: EdgeInsets.only(
-                        //       left: 10
-                        //   ),
-                        //   child: Text(taskModel..toString(),style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold),),
-                        // ),
                       ],
                     );
                   },

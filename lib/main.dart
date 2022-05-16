@@ -22,6 +22,7 @@ void main() async {
   };
   await Hive.initFlutter();
   await Hive.openBox('product');
+  await Hive.openBox('token');
   runApp(const MyApp());
 }
 

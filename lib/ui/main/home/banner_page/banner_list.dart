@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 import 'package:udevs_mac_bro/model/banner_model/banner_model.dart';
+import 'package:udevs_mac_bro/repository/repository/home_repository.dart';
 
 import 'banner_item.dart';
 import 'banner_page_logic.dart';
 final logic=Get.put(BannerPageLogic());
+late final HomeRepostry? repository;
 HomeController controller=Get.put(HomeController());
 allBannerList(){
   RxList<BannerModel> allProduct = logic.allProductList;
