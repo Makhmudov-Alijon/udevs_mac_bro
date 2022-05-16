@@ -1,9 +1,11 @@
 
+// ignore_for_file: must_be_immutable
+
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+
 
 
 import 'package:get/get.dart';
@@ -11,10 +13,12 @@ import 'package:get/get.dart';
 
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 
 import 'package:udevs_mac_bro/ui/main/home/banner_page/banner_list.dart';
+import 'package:udevs_mac_bro/ui/main/home/banner_page/banner_widget.dart';
 
 import 'package:udevs_mac_bro/ui/main/home/category_page/category_list.dart';
 import 'package:udevs_mac_bro/ui/main/home/new__product/new_product_list.dart';
@@ -29,6 +33,8 @@ class HomePage extends StatelessWidget {
   RxInt _current = 0.obs;
   final CarouselController _controller = CarouselController();
   final List<Widget> itemBanner = allBannerList();
+
+  HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,13 +63,13 @@ class HomePage extends StatelessWidget {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                       ),
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: const Icon(Icons.search),
                     hintText: 'Поиск'
                   ),
                 ),
               ),
               Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
 
 
                   ),
@@ -110,6 +116,8 @@ class HomePage extends StatelessWidget {
 
                         ),
                       ),
+
+
                       Obx(() {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -123,7 +131,7 @@ class HomePage extends StatelessWidget {
                               child: Container(
                                 width:_current.value == entry.key ? 3.w :2.w,
                                 height:_current.value == entry.key ? 3.h :2.h,
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                     vertical: 8.0, horizontal: 4.0),
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
@@ -147,14 +155,14 @@ class HomePage extends StatelessWidget {
 
                           left: 5.w
                       ),
-                      child: Text('Новые', style: TextStyle(fontSize: 20),),
+                      child: const Text('Новые', style: TextStyle(fontSize: 20),),
                     ),
                     Container(
                       margin: EdgeInsets.only(
 
                           left: 68.w
                       ),
-                      child: Icon(Icons.arrow_forward),
+                      child: const Icon(Icons.arrow_forward),
                     )
                   ],
                 ),
@@ -176,7 +184,7 @@ class HomePage extends StatelessWidget {
                       // top: 2.h,
                       left: 5.w
                   ),
-                  child: Text('Категории', style: TextStyle(fontSize: 20),),
+                  child: const Text('Категории', style: TextStyle(fontSize: 20),),
                 ),
 
                 StaggeredGrid.count(

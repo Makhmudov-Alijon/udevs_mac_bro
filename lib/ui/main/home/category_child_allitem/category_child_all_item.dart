@@ -7,8 +7,7 @@ import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 import 'package:udevs_mac_bro/model/category_model/category_chils.dart';
 import 'package:udevs_mac_bro/ui/exam.dart';
-import 'package:udevs_mac_bro/ui/main/home/product_idpage/argumnet_product.dart';
-import 'package:udevs_mac_bro/ui/main/home/product_idpage/product_idpage_view.dart';
+
 
 class CategoryChildAllItem extends StatelessWidget {
    CategoryChildAllItem({Key? key,required this.allModel}) : super(key: key);
@@ -116,7 +115,7 @@ class CategoryChildAllItem extends StatelessWidget {
       ),
       onTap: (){
         print(allModel.id.toString());
-        Get.to(()=>ProductIdpagePage(),arguments: ProductArgumnt(name: allModel.name.toString(), price: allModel.cheapestPrice.toString(), id: allModel.id.toString()));
+        // Get.to(()=>ProductIdpagePage(),arguments: ProductArgumnt(name: allModel.name.toString(), price: allModel.cheapestPrice.toString(), id: allModel.id.toString()));
       },
     );
   }

@@ -1,9 +1,10 @@
 import 'package:get/get.dart';
 
-class BottomBArController extends GetxController{
-  var tabIndex = 0.obs;
+class BottomBarController extends GetxController {
+  RxInt tabIndex = RxInt(0);
+
   void changeTabIndex(int index) {
-    tabIndex.value = index;
+    tabIndex(index);
     update();
   }
 }

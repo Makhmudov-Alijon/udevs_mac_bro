@@ -25,7 +25,9 @@ class _SplashPageState extends State<SplashPage> {
         .of(context)
         .size
         .width;
-    return GetBuilder<SplashController>(builder: (_controller) {
+    return GetBuilder<SplashController>(
+      init: SplashController(),
+        builder: (_controller) {
       _controller.time(context);
       return Scaffold(
         body: Column(

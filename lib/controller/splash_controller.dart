@@ -2,18 +2,27 @@ import 'dart:async';
 
 
 
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:udevs_mac_bro/ui/main/main/main_exam.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:udevs_mac_bro/routes/app_routes.dart';
+
 
 
 
 
 class SplashController extends GetxController{
+  Box box=Hive.box('product');
   time(context){
+    Timer(const Duration(seconds: 1), () {
+      if(box.isEmpty){
+        Get.offAllNamed(AppRoutes.internetConnection);
+      }else{
+        Get.offAllNamed(AppRoutes.mainPageScreen);
+      }
 
-    Timer(const Duration(seconds: 1), () =>Navigator.push(context, MaterialPageRoute(builder: (context)=>MainPage())));
+    });
   update();
   }
 

@@ -7,7 +7,7 @@ import 'package:udevs_mac_bro/controller/bottombar_controller.dart';
 class Binding extends Bindings{
   @override
   void dependencies() {
-    Get.lazyPut(() => BottomBArController(), fenix: true);
+    Get.lazyPut(() => BottomBarController(), fenix: true);
 
   }
 }

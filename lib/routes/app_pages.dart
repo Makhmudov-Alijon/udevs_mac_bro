@@ -17,17 +17,17 @@ class AppPages {
 
     ),
     GetPage(
-      name: AppRoutes.main,
-      page: () =>  MainPage(),
+      name: AppRoutes.mainPageScreen,
+      page: () =>  MainPageScreen(),
 
     ),
     GetPage(
       name: AppRoutes.internetConnection,
-      page: () =>  LoginPage(),
+      page: () =>  const LoginPage(),
     ),
     GetPage(
       name: AppRoutes.detail,
-      page: () =>  OtpLoginPage(),
+      page: () =>  const OtpLoginPage(),
 
     ),
     GetPage(

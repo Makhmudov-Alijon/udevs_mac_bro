@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -11,7 +11,7 @@ import 'package:udevs_mac_bro/routes/app_routes.dart';
 import 'package:udevs_mac_bro/ui/main/home/category_page/exam_category.dart';
 
 class CategoryItem extends StatelessWidget {
-   CategoryItem({Key? key,required this.allModel}) : super(key: key);
+   const CategoryItem({Key? key,required this.allModel}) : super(key: key);
  final Categories allModel;
   @override
   Widget build(BuildContext context) {

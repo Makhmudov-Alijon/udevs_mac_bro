@@ -14,6 +14,8 @@ import 'package:udevs_mac_bro/model/product_model/product_model.dart';
 import 'package:udevs_mac_bro/ui/exam.dart';
 import 'package:udevs_mac_bro/ui/main/home/product_idpage/argumnet_product.dart';
 import 'package:udevs_mac_bro/ui/main/home/product_idpage/product_idpage_view.dart';
+
+
 class NewProductItem extends StatelessWidget {
    NewProductItem({Key? key,required this.allModel}) : super(key: key);
 final NewExamProductList allModel;

@@ -1,4 +1,4 @@
-import 'dart:convert';
+ import 'dart:convert';
 ExamCategoryModel2 examCategoryModel2FromJson(String str) => ExamCategoryModel2.fromJson(json.decode(str));
 String examCategoryModel2ToJson(ExamCategoryModel2 data) => json.encode(data.toJson());
 class ExamCategoryModel2 {
