@@ -24,18 +24,17 @@ class SubCategoryItem extends StatelessWidget {
         ),
         elevation: 1,
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            StaggeredGrid.count(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              children:children.children!.map((e) => CategoryChild(allModel: e)).toList(),
-            ),
-          ],
-        ),
+      body:ListView(
+        physics: const BouncingScrollPhysics(),
+        children: [
+          StaggeredGrid.count(
+
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            children:children.children!.map((e) => CategoryChild(allModel: e)).toList(),
+          ),
+        ],
       ),
     );
   }

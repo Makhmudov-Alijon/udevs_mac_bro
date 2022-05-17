@@ -78,9 +78,9 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
       ),
       bottomSheet: GestureDetector(
         child: Container(
-          margin: EdgeInsets.only(bottom: height * .05, left: width * .05),
+          margin: EdgeInsets.only(bottom: height * .05, left: width * .05,right: width * .05),
           height: height * .07,
-          width: width * .9,
+          width: width * 1,
           decoration: BoxDecoration(
               color: Colors.blue, borderRadius: BorderRadius.circular(10)),
           child: Center(
@@ -94,6 +94,7 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
           // logic.userPasscode(editingController.text, box.get('key'),
           //     "emc-hQF5QjCWDrVirT28lU:APA91bEUWAsloZMGuz10sMquVPxQxwt-wNGJoR-LCcOuwrgG68C9r0KScDWJdHR6l_ZB5X-INnhZWhR_5mTlUfhqcFk4rQ1A9p9i4YShpLLGm6o-wj5zdnWKh_rgJHo8DJikuP6hg-9O");
           // print(logic.getToken());
+
           if(editingController.text.length==6){
             Get.offAllNamed(AppRoutes.mainPageScreen);
           }else{

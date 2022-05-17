@@ -15,7 +15,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import 'package:sizer/sizer.dart';
-import 'package:udevs_mac_bro/controller/exam_home_controller.dart';
+
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 
 import 'package:udevs_mac_bro/ui/main/home/banner_page/banner_list.dart';
@@ -34,7 +34,6 @@ class HomePage extends StatelessWidget {
   RxInt _current = 0.obs;
   final CarouselController _controller = CarouselController();
   final List<Widget> itemBanner = allBannerList();
-ExamHomeController _examHomeControllercontroller=Get.put(ExamHomeController());
   HomePage({Key? key}) : super(key: key);
 
   @override
@@ -84,7 +83,7 @@ ExamHomeController _examHomeControllercontroller=Get.put(ExamHomeController());
           elevation: 0,
         ),
         body: ListView(
-
+          physics: const BouncingScrollPhysics(),
           children: [
 
             Column(
@@ -119,33 +118,31 @@ ExamHomeController _examHomeControllercontroller=Get.put(ExamHomeController());
                       ),
 
 
-                      Obx(() {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: itemBanner
-                              .asMap()
-                              .entries
-                              .map((entry) {
-                            return GestureDetector(
-                              onTap: () =>
-                                  _controller.animateToPage(entry.key),
-                              child: Container(
-                                width:_current.value == entry.key ? 3.w :2.w,
-                                height:_current.value == entry.key ? 3.h :2.h,
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 8.0, horizontal: 4.0),
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)
-                                        .withOpacity(
-                                        _current.value == entry.key
-                                            ? 0.9
-                                            : 0.1)),
-                              ),
-                            );
-                          }).toList(),
-                        );
-                      }),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: itemBanner
+                            .asMap()
+                            .entries
+                            .map((entry) {
+                          return GestureDetector(
+                            onTap: () =>
+                                _controller.animateToPage(entry.key),
+                            child: Container(
+                              width:_current.value == entry.key ? 3.w :2.w,
+                              height:_current.value == entry.key ? 3.h :2.h,
+                              margin: const EdgeInsets.symmetric(
+                                  vertical: 8.0, horizontal: 4.0),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)
+                                      .withOpacity(
+                                      _current.value == entry.key
+                                          ? 0.9
+                                          : 0.1)),
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ],
                   ),
                 ),
@@ -168,18 +165,25 @@ ExamHomeController _examHomeControllercontroller=Get.put(ExamHomeController());
                   ],
                 ),
                 SizedBox(height: 2.h,),
-                Obx(() {
-                  return Container(
-
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: allNewProductList(),
-                      ),
-                    ),
-                  );
-                }),
+                // Container(
+                //
+                //   child: SingleChildScrollView(
+                //     scrollDirection: Axis.horizontal,
+                //     child: Row(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: allNewProductList(),
+                //     ),
+                //   ),
+                // ),
+                Container(
+                  height: 27.h,
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    children:allNewProductList() ,
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(
                       // top: 2.h,

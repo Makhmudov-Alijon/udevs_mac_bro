@@ -60,6 +60,7 @@ dependencies:
   cached_network_image: ^3.2.0
   selectable_container: ^1.0.2
   flutter_image_slideshow: ^0.1.2
+  translator: ^0.1.7
 
 
 

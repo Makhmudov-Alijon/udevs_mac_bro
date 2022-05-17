@@ -1,7 +1,10 @@
 
 
+import 'package:alice/alice.dart';
+import 'package:flutter/foundation.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+import 'package:udevs_mac_bro/contact/contact.dart';
 import 'package:udevs_mac_bro/controller/login_page_controller.dart';
 import 'package:udevs_mac_bro/model/category_model/category_child_item.dart';
 import 'package:udevs_mac_bro/model/category_model/category_chils.dart';
@@ -35,11 +38,67 @@ LoginController controller=Get.put(LoginController());
 
 @RestApi(baseUrl: "")
 abstract class RestClient {
+  static Alice alice = Alice(
+    navigatorKey: AppConstants.navigatorKey,
+    showNotification: true,
+    showInspectorOnShake: false,
+    darkTheme: false,
+  );
+
+  static get getDio {
+    Dio dio = Dio(BaseOptions(followRedirects: false));
+
+    if (kDebugMode) {
+      /// chuck interceptor
+      dio.interceptors.add(alice.getDioInterceptor());
+
+      /// log
+      dio.interceptors.add(
+        LogInterceptor(
+          responseBody: true,
+          requestBody: true,
+          request: true,
+        ),
+      );
+    }
+
+    /// Tries the last error request again.
+    // dio.interceptors.add(
+    //   RetryInterceptor(
+    //     dio: dio,
+    //     toNoInternetPageNavigator: () async =>
+    //     await Get.toNamed(AppRoutes.internetConnection),
+    //     accessTokenGetter: () => LocalSource.instance.getAccessToken(),
+    //     refreshTokenFunction: BaseFunctions.refreshToken,
+    //   ),
+    // );
+
+    return dio;
+  }
 
 
-  factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
+  static RestClient? _apiClient;
 
+  static RestClient getInstance({String baseUrl = ''}) {
+    if (_apiClient != null) {
+      return _apiClient!;
+    } else {
+      _apiClient = RestClient(getDio, baseUrl);
+      return _apiClient!;
+    }
+  }
+
+  static void removeApiClient() {
+    _apiClient = null;
+  }
+
+  // factory RestClient(Dio dio, String baseUrl,) = _RestClient;
+
+  factory RestClient(Dio dio,  String baseUrl) {
+    dio.options = BaseOptions(receiveTimeout: 30000, connectTimeout: 30000);
+    return _RestClient(dio, baseUrl: baseUrl);
+  }
   @GET('https://api.client.macbro.uz/v1/banner')
   Future<BannersModel> getBanner();
 

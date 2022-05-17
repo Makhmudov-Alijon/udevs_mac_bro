@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 import 'package:udevs_mac_bro/model/user_create/UserMe.dart';
 import 'package:udevs_mac_bro/ui/main/profil/profil_logic.dart';
 
@@ -14,6 +15,7 @@ class ProfilPage extends StatelessWidget {
       body: Column(
         children: [
           for (var i = 0; i < logic.user.length; i++) ...{
+            SizedBox(height: 10.h,),
             Center(
               child: userItem(logic.user[i]),
             )
@@ -33,13 +35,13 @@ class ProfilPage extends StatelessWidget {
             height: 20,
           ),
           Container(
-            child: Text(" ${model.firstName}"),
+            child: Text("firstName : ${model.firstName}"),
           ),
           Container(
-            child: Text("  ${model.lastName}"),
+            child: Text("lastName : ${model.lastName}"),
           ),
           Container(
-            child: Text(" ${model.phoneNumber}"),
+            child: Text("phoneNumber : ${model.phoneNumber}"),
           ),
         ],
       ),

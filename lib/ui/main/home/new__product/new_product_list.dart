@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -10,7 +8,6 @@ import 'package:udevs_mac_bro/model/new_exam/new_product_list_item.dart';
 import 'package:udevs_mac_bro/ui/main/home/new__product/new_product_item.dart';
 
 
-
 import 'new__product_logic.dart';
 
 
@@ -18,7 +15,7 @@ final Box productBox = Hive.box('product');
 final logic = Get.put(New_ProductLogic());
 
 
-allNewProductList(){
+allNewProductList() {
   RxList<NewExamProductList> allProduct = logic.allProductList;
 
   List<Widget> allProductWidget = [];
@@ -28,3 +25,5 @@ allNewProductList(){
   }
   return allProductWidget;
 }
+
+

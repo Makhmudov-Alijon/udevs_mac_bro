@@ -72,9 +72,9 @@ class _LoginPageState extends State<LoginPage> {
       ),
       bottomSheet: GestureDetector(
         child: Container(
-          margin: EdgeInsets.only(bottom: height * .05, left: width * .05),
+          margin: EdgeInsets.only(bottom: height * .05, left: width * .05,right: width * .05),
           height: height * .07,
-          width: width * .9,
+          width: width * 1,
           decoration: BoxDecoration(
               color: Colors.blue, borderRadius: BorderRadius.circular(10)),
           child: const Center(
@@ -86,19 +86,24 @@ class _LoginPageState extends State<LoginPage> {
         ),
         onTap: () {
           logic.userCreat(textEditingController.text.toString());
-          if(logic.value.value){
-            print('user creat');
-            logic.userCreatToken('5a3818a9-90f0-44e9-a053-3be0ba1e2c07', '', textEditingController.text.toString(), 'ahqCTxXquk3');
-            print(logic.getToken());
-            if(box.isNotEmpty||textEditingController.text.isNotEmpty){
-             Get.toNamed(AppRoutes.detail);
-            }else{
-              return null;
-            }
+          if(textEditingController.text.length==13){
+            if(logic.value.value){
+              print('user creat');
+              logic.userCreatToken('5a3818a9-90f0-44e9-a053-3be0ba1e2c07', '', textEditingController.text.toString(), 'ahqCTxXquk3');
+              print(logic.getToken());
+              if(box.isNotEmpty||textEditingController.text.isNotEmpty){
+                Get.toNamed(AppRoutes.detail);
+              }else{
+                return null;
+              }
 
+            }else{
+              print('not user creat');
+            }
           }else{
-            print('not user creat');
+            return null;
           }
+
 
         },
       ),
