@@ -9,16 +9,16 @@ import 'package:udevs_mac_bro/routes/app_pages.dart';
 import 'binding/initial_binding.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); //imp line need to be added first
-
-  FlutterError.onError = (FlutterErrorDetails details) {
-    //this line prints the default flutter gesture caught exception in console
-    //FlutterError.dumpErrorToConsole(details);
-    print("Error From INSIDE FRAME_WORK");
-    print("----------------------");
-    print("Error :  ${details.exception}");
-    print("StackTrace :  ${details.stack}");
-  };
+  // WidgetsFlutterBinding.ensureInitialized(); //imp line need to be added first
+  //
+  // FlutterError.onError = (FlutterErrorDetails details) {
+  //   //this line prints the default flutter gesture caught exception in console
+  //   //FlutterError.dumpErrorToConsole(details);
+  //   print("Error From INSIDE FRAME_WORK");
+  //   print("----------------------");
+  //   print("Error :  ${details.exception}");
+  //   print("StackTrace :  ${details.stack}");
+  // };
   await Hive.initFlutter();
   await Hive.openBox('product');
   await Hive.openBox('token');

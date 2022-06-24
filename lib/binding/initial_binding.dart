@@ -11,7 +11,7 @@ class InitialBinding extends Bindings{
   @override
   void dependencies() {
     Get.put(RestClient(Dio()));
-    Get.put<ConnectionService>(ConnectionService(), permanent: true);
+    // Get.put<ConnectionService>(ConnectionService(), permanent: true);
   }
 
 }

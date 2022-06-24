@@ -15,13 +15,7 @@ class ProfilPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          for (var i = 0; i < logic.user.length; i++) ...{
-            SizedBox(height: 10,),
-            Center(
-              child: userItem(logic.user[i]),
-            )
-          }
-        ],
+        ]
       ),
     );
   }
