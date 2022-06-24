@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
+
 import 'package:udevs_mac_bro/controller/product_controller.dart';
 import 'package:udevs_mac_bro/model/product_model/product_model.dart';
 import 'package:udevs_mac_bro/ui/main/home/product_idpage/argumnet_product.dart';
@@ -21,7 +21,7 @@ class ProductIdpagePage extends StatelessWidget {
   final logic = Get.put(ProductIdpageLogic());
   ProductController controller = Get.put(ProductController());
   final ProductArgumnt children = Get.arguments ?? [];
-
+  RxBool a=RxBool(false);
   @override
   Widget build(BuildContext context) {
     final RxList<Properties> product = logic.allProductList;
@@ -40,73 +40,23 @@ class ProductIdpagePage extends StatelessWidget {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           padding: EdgeInsets.only(
-            bottom: 12.h
+            bottom: 12
           ),
           children: [
-            if(controller.name.isEmpty)...{
-              ImageSlideshow(
+            ImageSlideshow(
 
-                height: 25.h,
+              height: 200,
 
-                indicatorColor: Colors.blue,
-                indicatorBackgroundColor: Colors.grey,
-                onPageChanged: (value) {
-
-                },
-                autoPlayInterval: 3000,
-                isLoop: true,
-                children:variants.first.value!.gallery!.map((e) => ProductImageItem(allModel: e, ))
-                    .toList(),
-              ),
-            }else...{
-              for(var i=0;i<variants.length;i++)...{
-                if(variants.elementAt(i).name!.contains(controller.name.value))...{
-                  if(variants.elementAt(i).name!.contains(controller.ram.value))...{
-                    if(product.length==2)...{
-                      ImageSlideshow(
-
-                        height: 25.h,
-
-                        indicatorColor: Colors.blue,
-                        indicatorBackgroundColor: Colors.grey,
-                        onPageChanged: (value) {
-
-                        },
-                        autoPlayInterval: 3000,
-                        isLoop: true,
-                        children:variants.elementAt(i).value!.gallery!.map((e) => ProductImageItem(allModel: e, ))
-                            .toList(),
-                      ),
-                    },
-                    if(product.length==3)...{
-                      if(variants.elementAt(i).name!.contains(controller.single.value))...{
-                        ImageSlideshow(
-
-                          height: 25.h,
-
-                          indicatorColor: Colors.blue,
-                          indicatorBackgroundColor: Colors.grey,
-                          onPageChanged: (value) {
-
-                          },
-                          autoPlayInterval: 3000,
-                          isLoop: true,
-                          children:variants.elementAt(i).value!.gallery!.map((e) => ProductImageItem(allModel: e, ))
-                              .toList(),
-                        ),
-                      }
-                    }
-
-
-                  }
-
-                }
-
-
-
+              indicatorColor: Colors.blue,
+              indicatorBackgroundColor: Colors.grey,
+              onPageChanged: (value) {
 
               },
-            },
+              autoPlayInterval: 3000,
+              isLoop: true,
+              children:variants.first.value!.gallery!.map((e) => ProductImageItem(allModel: e, ))
+                  .toList(),
+            ),
 
 
             for (int i = 0; i < product.length; i++) ...{
@@ -117,10 +67,16 @@ class ProductIdpagePage extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
-                children: product
-                    .elementAt(i)
-                    .value!
-                    .map((e) => ProductItem(allModel: e, index: i,))
+                children: product.elementAt(i).value!
+                    .map((e) => GestureDetector(
+                    onTap: (){
+                      if(e.name==product.elementAt(i).value!.elementAt(i).name){
+                        a.value=true;
+                      }else{
+                        a.value=false;
+                      }
+                    },
+                    child: ProductItem(allModel: e,)))
                     .toList(),
               ),
 
@@ -128,46 +84,46 @@ class ProductIdpagePage extends StatelessWidget {
 
           ],
         ),
-        bottomSheet: Container(
-          width: 100.w,
-
-          height: 10.h,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(4.w),
-                topLeft: Radius.circular(4.w),
-              )
-          ),
-          child: Container(
-            width: 90.w,
-            height: 6.h,
-            margin: EdgeInsets.only(
-              left: 5.w,
-              right: 5.w,
-              bottom: 2.h,
-              top: 2.h
-            ),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(2.w)
-            ),
-            child: Center(child:  SingleChildScrollView(
-              child: Column(
-                children: [
-                  for(var i=0;i<variants.length;i++)...{
-                    if(variants.elementAt(i).name=="${controller.name.value}-${controller.ram.value}")...{
-
-                      Text(variants.elementAt(i).value!.price!.uzsPrice.toString()),
-                    },
-
-                  },
-
-                ],
-              ),
-            )),
-          ),
-        ),
+        // bottomSheet: Container(
+        //   width: 100,
+        //
+        //   height: 10,
+        //   decoration: BoxDecoration(
+        //       color: Colors.white,
+        //       borderRadius: BorderRadius.only(
+        //         topRight: Radius.circular(4),
+        //         topLeft: Radius.circular(4),
+        //       )
+        //   ),
+        //   child: Container(
+        //     width: 90,
+        //     height: 6,
+        //     margin: EdgeInsets.only(
+        //       left: 5,
+        //       right: 5,
+        //       bottom: 2,
+        //       top: 2
+        //     ),
+        //     decoration: BoxDecoration(
+        //       color: Colors.blue,
+        //       borderRadius: BorderRadius.circular(2)
+        //     ),
+        //     child: Center(child:  SingleChildScrollView(
+        //       child: Column(
+        //         children: [
+        //           for(var i=0;i<variants.length;i++)...{
+        //             if(variants.elementAt(i).name=="${controller.name.value}-${controller.ram.value}")...{
+        //
+        //               Text(variants.elementAt(i).value!.price!.uzsPrice.toString()),
+        //             },
+        //
+        //           },
+        //
+        //         ],
+        //       ),
+        //     )),
+        //   ),
+        // ),
       );
     });
   }

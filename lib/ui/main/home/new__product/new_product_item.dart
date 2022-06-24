@@ -2,13 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 
 
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 
 import 'package:udevs_mac_bro/model/new_exam/new_product_list_item.dart';
-import 'package:sizer/sizer.dart';
 
+import 'package:udevs_mac_bro/product_idpage/name_price.dart';
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/model/product_model/product_model.dart';
 import 'package:udevs_mac_bro/ui/exam.dart';
@@ -37,10 +38,10 @@ final NewExamProductList allModel;
               margin: EdgeInsets.only(
                 left: 10,
               ),
-              height: 20.h,
-              width: 40.w,
+              height: 150,
+              width: 150,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(2.w),
+                borderRadius: BorderRadius.circular(2),
                 color: Colors.white,
               ),
               child: Stack(
@@ -48,12 +49,12 @@ final NewExamProductList allModel;
 
                   Container(
                     margin: EdgeInsets.only(
-                        top: 2.h
+                        top: 2
                     ),
-                    height: 17.h,
-                    width: 50.w,
+                    height: 200,
+                    width: 200,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(4.w),
+                      borderRadius: BorderRadius.circular(4),
                       child: CachedNetworkImage(
                         imageUrl: allModel.image.toString(),
                         placeholder: (context, url) => Image(
@@ -68,11 +69,11 @@ final NewExamProductList allModel;
                   Container(
 
                     margin: EdgeInsets.only(
-                        left: 27.w,
-                        top: 2.h
+                        left: 120,
+                        top: 10
                     ),
                     child: FavoriteButton(
-                      iconSize: 9.w,
+                      iconSize: 40,
                       isFavorite: controller.isFavorite.value,
                       iconColor: controller.isFavorite.value? Colors.grey : Colors.blue,
                       valueChanged: (bool isFavorite) {
@@ -98,7 +99,7 @@ final NewExamProductList allModel;
               ),
             ),
             Container(
-              width: 40.w,
+              width: 150,
               margin: EdgeInsets.only(
                   left: 10
               ),

@@ -2,7 +2,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:sizer/sizer.dart';
+
 
 
 import 'package:flutter/material.dart';
@@ -13,16 +13,16 @@ class BannerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 90.w,
+        width: 360,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4.w),
+            borderRadius: BorderRadius.circular(50),
             color: Colors.white
         ),
         child: Stack(
           children: [
             Container(
               child: ClipRRect(
-                  borderRadius: BorderRadius.circular(4.w),
+                  borderRadius: BorderRadius.circular(10),
                   child: CachedNetworkImage(
                     imageUrl: allModel.image.toString(),
                     imageBuilder: (context, imageProvider)=>Container(
@@ -48,8 +48,8 @@ class BannerItem extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(
-                  top: 5.h,
-                  left: 5.w
+                  top: 5,
+                  left: 5
               ),
               child:Text(allModel.title.toString(),style: TextStyle(color: Colors.white),),
             ),

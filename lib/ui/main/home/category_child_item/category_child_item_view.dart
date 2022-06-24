@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
+
 import 'package:udevs_mac_bro/model/category_model/category_child_item.dart';
 
 import 'package:udevs_mac_bro/routes/app_routes.dart';
@@ -36,27 +36,27 @@ class Category_child_itemPage extends StatelessWidget {
           children: [
             GestureDetector(
               child: Container(
-                margin: EdgeInsets.only(top: 2.h),
-                height: 7.h,
-                width: 95.w,
+                margin: EdgeInsets.only(top: 2),
+                height: 50,
+
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(2.w),
+                    borderRadius: BorderRadius.circular(2),
                     color: Colors.white),
                 child: Row(
                   children: [
                     SizedBox(
-                      width: 3.w,
+                      width: 3,
                     ),
                     Icon(
                       Icons.menu_outlined,
                       color: Colors.blue,
                     ),
                     SizedBox(
-                      width: 4.w,
+                      width: 4,
                     ),
                     Text('Все продукты'),
                     SizedBox(
-                      width: 50.w,
+                      width: 50,
                     ),
                     Icon(
                       Icons.arrow_forward_ios,

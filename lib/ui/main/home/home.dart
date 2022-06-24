@@ -14,7 +14,7 @@ import 'package:get/get.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'package:sizer/sizer.dart';
+
 
 import 'package:udevs_mac_bro/controller/home_controller.dart';
 
@@ -46,12 +46,12 @@ class HomePage extends StatelessWidget {
           title: Row(
             children: [
               Container(
-                height: 6.h,
-                width: 80.w,
+                height: 50,
+                width: 350,
                 margin: EdgeInsets.only(
 
 
-                    right: 3.w
+                    right: 3
 
                 ),
                 child: TextField(
@@ -74,11 +74,11 @@ class HomePage extends StatelessWidget {
 
                   ),
                   child: Icon(
-                    Icons.notifications_none_rounded, color: Colors.grey,size: 4.h,)
+                    Icons.notifications_none_rounded, color: Colors.grey,size: 4,)
               )
             ],
           ),
-          toolbarHeight: 8.h,
+          toolbarHeight: 80,
           backgroundColor: Colors.white,
           elevation: 0,
         ),
@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
               children: [
                 Container(
                   margin: EdgeInsets.only(
-                    top: 2.h,
+                    top: 2,
 
                   ),
                   child: Column(
@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
                         carouselController: _controller,
                         items: itemBanner,
                         options: CarouselOptions(
-                          height: 25.h,
+                          height: 200,
                           enlargeCenterPage: true,
                           pageSnapping: true,
                           autoPlay: true,
@@ -128,8 +128,8 @@ class HomePage extends StatelessWidget {
                             onTap: () =>
                                 _controller.animateToPage(entry.key),
                             child: Container(
-                              width:_current.value == entry.key ? 3.w :2.w,
-                              height:_current.value == entry.key ? 3.h :2.h,
+                              width:_current.value == entry.key ? 10 :5,
+                              height:_current.value == entry.key ? 10 :5,
                               margin: const EdgeInsets.symmetric(
                                   vertical: 8.0, horizontal: 4.0),
                               decoration: BoxDecoration(
@@ -147,24 +147,27 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
 
-                          left: 5.w
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(
+
+                            left: 10
+                        ),
+                        child: const Text('Новые', style: TextStyle(fontSize: 25),),
                       ),
-                      child: const Text('Новые', style: TextStyle(fontSize: 20),),
                     ),
                     Container(
                       margin: EdgeInsets.only(
 
-                          left: 68.w
+                          right: 10
                       ),
                       child: const Icon(Icons.arrow_forward),
                     )
                   ],
                 ),
-                SizedBox(height: 2.h,),
+                SizedBox(height: 2,),
                 // Container(
                 //
                 //   child: SingleChildScrollView(
@@ -176,7 +179,7 @@ class HomePage extends StatelessWidget {
                 //   ),
                 // ),
                 Container(
-                  height: 27.h,
+                  height: 200,
                   child: ListView(
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,
@@ -187,7 +190,7 @@ class HomePage extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(
                       // top: 2.h,
-                      left: 5.w
+                      left: 5
                   ),
                   child: const Text('Категории', style: TextStyle(fontSize: 20),),
                 ),

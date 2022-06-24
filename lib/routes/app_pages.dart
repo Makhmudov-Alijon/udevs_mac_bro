@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:udevs_mac_bro/no_connection/no_connection_binding.dart';
+import 'package:udevs_mac_bro/no_connection/no_connection_view.dart';
 import 'package:udevs_mac_bro/ui/login_page/login_page.dart';
 import 'package:udevs_mac_bro/ui/login_page/otp_login_page.dart';
 import 'package:udevs_mac_bro/ui/main/main/main_exam.dart';
@@ -45,5 +47,6 @@ class AppPages {
       page: () =>  Category_child_allitemPage(),
 
     ),
+    GetPage(name: NoConnectionPage.route, page: ()=>NoConnectionPage(),binding: NoConnectionBinding())
   ];
 }

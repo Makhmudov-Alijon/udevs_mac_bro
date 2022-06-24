@@ -5,7 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
-import 'package:sizer/sizer.dart';
+
 
 import 'package:udevs_mac_bro/controller/product_controller.dart';
 import 'package:udevs_mac_bro/ui/main/home/product_idpage/product_idpage_logic.dart';
@@ -22,8 +22,8 @@ class ProductImageItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: allModel,
-      width: 10.w,
-      height: 10.h,
+      width: 100,
+      height: 100,
       fit: BoxFit.fitHeight,
       // imageBuilder: (context, imageProvider)=>Container(
       //   decoration: BoxDecoration(

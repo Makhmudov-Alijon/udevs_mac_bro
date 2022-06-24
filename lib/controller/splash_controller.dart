@@ -16,11 +16,7 @@ class SplashController extends GetxController{
   Box box=Hive.box('token');
   time(context){
     Timer(const Duration(seconds: 1), () {
-      if(box.isEmpty){
-        Get.offAllNamed(AppRoutes.internetConnection);
-      }else{
-        Get.offAllNamed(AppRoutes.mainPageScreen);
-      }
+      Get.offAllNamed(AppRoutes.mainPageScreen);
 
     });
   update();
