@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:udevs_mac_bro/pages/splash/splash_page.dart';
 
 import 'package:udevs_mac_bro/routes/app_pages.dart';
-import 'package:udevs_mac_bro/routes/app_routes.dart';
-
-
 
 import 'binding/initial_binding.dart';
 
@@ -38,11 +36,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: AppRoutes.initial,
+      initialRoute: SplashPage.route,
       initialBinding: InitialBinding(),
       getPages: AppPages.pages,
-      builder: (context, child) => ResponsiveWrapper.builder(
-          child,
+      builder: (context, child) => ResponsiveWrapper.builder(child,
           maxWidth: 2000,
           minWidth: 480,
           defaultScale: true,

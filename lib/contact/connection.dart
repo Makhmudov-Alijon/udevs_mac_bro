@@ -2,16 +2,12 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/no_connection/no_connection_view.dart';
-import 'package:udevs_mac_bro/routes/app_routes.dart';
-
-
-
+import 'package:udevs_mac_bro/pages/splash/splash_page.dart';
 
 class ConnectionService extends GetxService {
   StreamSubscription<ConnectivityResult>? subscription;
 
   final _connectivity = Connectivity();
-
 
   @override
   void onClose() {
@@ -27,9 +23,9 @@ class ConnectionService extends GetxService {
         case ConnectivityResult.ethernet:
         case ConnectivityResult.mobile:
         case ConnectivityResult.bluetooth:
-          if (Get.currentRoute == AppRoutes.initial) {
-            Get.offAllNamed(AppRoutes.initial);
-          }else{
+          if (Get.currentRoute == SplashPage.route) {
+            Get.offAllNamed(SplashPage.route);
+          } else {
             Get.back();
           }
           print("Connection ..........");

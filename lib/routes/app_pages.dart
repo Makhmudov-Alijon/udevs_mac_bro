@@ -1,52 +1,53 @@
 import 'package:get/get.dart';
 import 'package:udevs_mac_bro/no_connection/no_connection_binding.dart';
 import 'package:udevs_mac_bro/no_connection/no_connection_view.dart';
-import 'package:udevs_mac_bro/ui/login_page/login_page.dart';
-import 'package:udevs_mac_bro/ui/login_page/otp_login_page.dart';
-import 'package:udevs_mac_bro/ui/main/main/main_exam.dart';
-import 'package:udevs_mac_bro/ui/main/home/category_child_allitem/category_child_allitem_view.dart';
-import 'package:udevs_mac_bro/ui/main/home/category_child_item/category_child_item_view.dart';
-import 'package:udevs_mac_bro/ui/main/home/category_page/category_item_page.dart';
-import '../ui/splash/splash_page.dart';
-import 'app_routes.dart';
+import 'package:udevs_mac_bro/pages/main/home/category_child_allitem/category_child_allitem_binding.dart';
+import 'package:udevs_mac_bro/pages/main/home/category_child_item/category_child_item_binding.dart';
+import 'package:udevs_mac_bro/pages/main/home/category_page/category_page_binding.dart';
+import 'package:udevs_mac_bro/pages/main/home/product_detail_page/product_detail_page_binding.dart';
+import 'package:udevs_mac_bro/pages/main/home/product_detail_page/product_detail_page_view.dart';
 
+import '../pages/main/home/category_child_allitem/category_child_allitem_view.dart';
+import '../pages/main/home/category_child_item/category_child_item_view.dart';
+import '../pages/main/home/category_page/category_item_page.dart';
+import '../pages/main/home/search/search_binding.dart';
+import '../pages/main/home/search/search_view.dart';
+import '../pages/main/main/main_exam.dart';
+import '../pages/splash/splash_page.dart';
 
 class AppPages {
   static final pages = [
     GetPage(
-      name: AppRoutes.initial,
+      name: SplashPage.route,
       page: () => const SplashPage(),
-
     ),
     GetPage(
-      name: AppRoutes.mainPageScreen,
-      page: () =>  MainPageScreen(),
-
+      name: MainPageScreen.route,
+      page: () => MainPageScreen(),
     ),
     GetPage(
-      name: AppRoutes.internetConnection,
-      page: () =>  const LoginPage(),
-    ),
+        name: SubCategoryItem.route,
+        page: () => SubCategoryItem(),
+        binding: Category_pageBinding()),
     GetPage(
-      name: AppRoutes.detail,
-      page: () =>  const OtpLoginPage(),
-
-    ),
+        name: Category_child_itemPage.route,
+        page: () => Category_child_itemPage(),
+        binding: Category_child_itemBinding()),
     GetPage(
-      name: AppRoutes.subCategory,
-      page: () =>  SubCategoryItem(),
-
-    ),
+        name: Category_child_allitemPage.route,
+        page: () => Category_child_allitemPage(),
+        binding: Category_child_allitemBinding()),
     GetPage(
-      name: AppRoutes.categoryChild,
-      page: () =>  Category_child_itemPage(),
-
-    ),
+        name: NoConnectionPage.route,
+        page: () => NoConnectionPage(),
+        binding: NoConnectionBinding()),
     GetPage(
-      name: AppRoutes.categoryAllChild,
-      page: () =>  Category_child_allitemPage(),
-
-    ),
-    GetPage(name: NoConnectionPage.route, page: ()=>NoConnectionPage(),binding: NoConnectionBinding())
+        name: SearchPage.route,
+        page: () => SearchPage(),
+        binding: SearchBinding()),
+    GetPage(
+        name: ProductIdpagePage.route,
+        page: () => ProductIdpagePage(),
+        binding: ProductIdpageBinding())
   ];
 }

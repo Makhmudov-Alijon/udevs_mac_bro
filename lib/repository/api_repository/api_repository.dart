@@ -1,11 +1,10 @@
 
 
-import 'package:alice/alice.dart';
-import 'package:flutter/foundation.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 import 'package:udevs_mac_bro/contact/contact.dart';
-import 'package:udevs_mac_bro/controller/login_page_controller.dart';
+
+import 'package:udevs_mac_bro/model/SearchModel.dart';
 import 'package:udevs_mac_bro/model/category_model/category_child_item.dart';
 import 'package:udevs_mac_bro/model/category_model/category_chils.dart';
 
@@ -22,127 +21,69 @@ import 'package:udevs_mac_bro/model/user_create/UserCreateTokenBody.dart';
 import 'package:udevs_mac_bro/model/user_create/UserCreatrePasscode.dart';
 import 'package:udevs_mac_bro/model/user_create/UserMe.dart';
 
-
-
-
-
 import '../../model/banner_model/banners_model.dart';
 
 
 
-
-
-import 'package:get/get.dart';
 part 'api_repository.g.dart';
-LoginController controller=Get.put(LoginController());
 
-@RestApi(baseUrl: "")
+@RestApi(baseUrl: AppConstants.baseUrl)
 abstract class RestClient {
-  static Alice alice = Alice(
-    navigatorKey: AppConstants.navigatorKey,
-    showNotification: true,
-    showInspectorOnShake: false,
-    darkTheme: false,
-  );
+  factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
-  static get getDio {
-    Dio dio = Dio(BaseOptions(followRedirects: false));
-
-    if (kDebugMode) {
-      /// chuck interceptor
-      dio.interceptors.add(alice.getDioInterceptor());
-
-      /// log
-      dio.interceptors.add(
-        LogInterceptor(
-          responseBody: true,
-          requestBody: true,
-          request: true,
-        ),
-      );
-    }
-
-    /// Tries the last error request again.
-    // dio.interceptors.add(
-    //   RetryInterceptor(
-    //     dio: dio,
-    //     toNoInternetPageNavigator: () async =>
-    //     await Get.toNamed(AppRoutes.internetConnection),
-    //     accessTokenGetter: () => LocalSource.instance.getAccessToken(),
-    //     refreshTokenFunction: BaseFunctions.refreshToken,
-    //   ),
-    // );
-
-    return dio;
-  }
-
-
-
-  static RestClient? _apiClient;
-
-  static RestClient getInstance({String baseUrl = ''}) {
-    if (_apiClient != null) {
-      return _apiClient!;
-    } else {
-      _apiClient = RestClient(getDio, baseUrl);
-      return _apiClient!;
-    }
-  }
-
-  static void removeApiClient() {
-    _apiClient = null;
-  }
-
-  // factory RestClient(Dio dio, String baseUrl,) = _RestClient;
-
-  factory RestClient(Dio dio,  String baseUrl) {
-    dio.options = BaseOptions(receiveTimeout: 30000, connectTimeout: 30000);
-    return _RestClient(dio, baseUrl: baseUrl);
-  }
-  @GET('https://api.client.macbro.uz/v1/banner')
+  @GET(AppConstants.banners)
   Future<BannersModel> getBanner();
 
-  @GET('https://api.client.macbro.uz/v1/category')
+  @GET(AppConstants.category)
   Future<ExamCategoryModel2> getCategory();
 
-  @GET('https://api.client.macbro.uz/v1/featured-list/rasprodazha?lang=ru')
+  @GET(AppConstants.featuredList)
   Future<NewExamMap> getNewProduct(
-      @Query("lang") String lang,
-      );
-  @GET('https://api.client.macbro.uz/v1/product?category={id}')
-  Future<CategoryChildItem> getCategoryChildItem(
-      @Path("id") String id
-      );
-  @GET('https://api.client.macbro.uz/v1/product-variant?category={id}&limit=1000')
+    @Query("lang") String lang,
+  );
+
+  @GET(AppConstants.categoryID)
+  Future<CategoryChildItem> getCategoryChildItem(@Path("id") String id);
+
+  @GET(AppConstants.variantCategoryID)
   Future<CategoryChils> getCategoryChildAllItem(
-      @Path("id") String id,
-      );
-  @GET('https://api.client.macbro.uz/v1/product/{id}')
+    @Path("id") String id,
+  );
+
+  @GET(AppConstants.productID)
   Future<ProductModel> getProductId(
-      @Path("id") String id,
-      );
-  @POST('https://api.client.macbro.uz/v1/user/exists')
-  Future<UserCreate> userCreate(
-      @Body() UserCreateBody userCreateBody
-      );
-  @POST('https://api.auth.macbro.uz/v1/auth/passcode/generate')
+    @Path("id") String id,
+  );
+
+  @POST(AppConstants.userExists)
+  Future<UserCreate> userCreate(@Body() UserCreateBody userCreateBody);
+
+  @POST(AppConstants.passcodeGenerate)
   Future<UserCreateToken> userCreateToken(
-      @Body() UserCreateTokenBody userCreateBody,
-      @Header("platform-id") String platformId,
-      );
-  @POST('https://api.auth.macbro.uz/v1/auth/passcode/confirm')
+    @Body() UserCreateTokenBody userCreateBody,
+    @Header("platform-id") String platformId,
+  );
+
+  @POST(AppConstants.passcodeConfirm)
   Future<UserCreatrePasscode> userCreatePasscode(
-      @Body() UserCreatePasscodeBody userCreateBody,
-      @Header("platform-id") String platformId,
-      );
-  @GET('https://api.client.macbro.uz/v1/user/me')
+    @Body() UserCreatePasscodeBody userCreateBody,
+    @Header("platform-id") String platformId,
+  );
+
+  @GET(AppConstants.userMe)
   Future<UserMe> getUserMe(
-      @Header("Authorization") String authorization,
-      @Header("platform-id") String platformId,
-      );
-  @GET('https://api.client.macbro.uz/v1/user/{id}')
+    @Header("Authorization") String authorization,
+    @Header("platform-id") String platformId,
+  );
+
+  @GET(AppConstants.userID)
   Future<UserMe> getUser(
-      @Path("id") String id,
-      @Header("platform-id") String platformId,
-      );
+    @Path("id") String id,
+    @Header("platform-id") String platformId,
+  );
+
+  @GET(AppConstants.productSearch)
+  Future<SearchModel> getSearch(
+    @Query("search") String search,
+  );
 }
