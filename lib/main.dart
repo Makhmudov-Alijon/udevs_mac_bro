@@ -39,16 +39,16 @@ class MyApp extends StatelessWidget {
       initialRoute: SplashPage.route,
       initialBinding: InitialBinding(),
       getPages: AppPages.pages,
-      // builder: (context, child) => ResponsiveWrapper.builder(child,
-      //     maxWidth: 2000,
-      //     minWidth: 480,
-      //     defaultScale: true,
-      //     breakpoints: [
-      //       ResponsiveBreakpoint.resize(400, name: MOBILE),
-      //       ResponsiveBreakpoint.autoScale(1000, name: TABLET),
-      //       ResponsiveBreakpoint.resize(1000, name: DESKTOP),
-      //     ],
-      //     background: Container(color: Color(0xFFF5F5F5))),
+      builder: (context, child) => ResponsiveWrapper.builder(child,
+          maxWidth: 2000,
+          minWidth: 480,
+          defaultScale: true,
+          breakpoints: [
+            ResponsiveBreakpoint.resize(400, name: MOBILE),
+            ResponsiveBreakpoint.autoScale(1000, name: TABLET),
+            ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+          ],
+          background: Container(color: Color(0xFFF5F5F5))),
     );
   }
 }
